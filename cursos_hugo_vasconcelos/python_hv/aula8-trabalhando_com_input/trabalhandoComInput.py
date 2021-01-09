@@ -1,0 +1,2 @@
+input("Digite um valor: ")
+
