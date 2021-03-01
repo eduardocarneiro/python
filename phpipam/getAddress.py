@@ -13,11 +13,22 @@ res = requests.post(baseurl + '/user/', auth=(username, password))
 #print(res.content)
 token = json.loads(res.content)['data']['token']
 
+res = requests.get(baseurl + '/addresses/first_free/7', headers={'token': token})
+#print(res.status_code)
+result = json.loads(res.content)['data']
+print(result)
+
+"""
+print(res.json())
 res = requests.get(baseurl + '/sections/', headers={'token': token})
 #print(res.status_code)
 #print(res.content.json())
 print(res.json())
+"""
 
+
+
+"""
 print(" ")
 res = requests.get(baseurl + '/subnets/', headers={'token': token})
 #print(res.status_code)
@@ -47,11 +58,5 @@ print(res.json())
 #https://pypi.org/project/requests3/
 #https://requests.readthedocs.io/en/master/
 #https://www.freecodecamp.org/news/python-read-json-file-how-to-load-json-from-a-file-and-parse-dumps/
-#https://github.com/phpipam/phpipam/issues/685 #show how to use POST API
-#ssh
-#https://stackoverflow.com/questions/47252339/how-to-edit-the-remote-file-via-sshlibrary # show how to use ssh
-#https://github.com/paramiko/paramiko # show how to use ssh
-#http://docs.paramiko.org/en/stable/
 
-#compare grep shell and python
-#https://code-maven.com/compare-the-speed-of-grep-with-python-regex
+"""

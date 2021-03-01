@@ -1,0 +1,24 @@
+
+
+links abertos:
+https://phpipam.net/api-documentation/
+https://github.com/phpipam/phpipam/tree/master/functions
+https://deangrant.me/2016/01/19/phpipam-the-api-server-module-and-automating-ip-address-reservation/
+https://phpipam.net/documents/
+https://phpipam.net/news/api_example_curl/
+https://pypi.org/project/requests3/
+https://requests.readthedocs.io/en/master/
+https://gist.github.com/kennethreitz42/973705#file-1_requests-py
+https://gist.github.com/cl4u2/de6ed34cb948fbcdba0c71257d33fee5 (important)
+https://github.com/phpipam/phpipam/issues
+https://deangrant.me/2016/12/03/creating-new-address-in-a-subnet-using-phpipam-rest-api/
+https://github.com/phpipam/phpipam/issues/685 (important)
+# ssh
+https://www.kite.com/python/answers/how-to-upload-a-file-using-ssh-in-python
+https://medium.com/@keagileageek/paramiko-how-to-ssh-and-file-transfers-with-python-75766179de73
+https://stackoverflow.com/questions/47252339/how-to-edit-the-remote-file-via-sshlibrary
+( important)
+http://docs.paramiko.org/en/stable/
+https://github.com/paramiko/paramiko
+https://code-maven.com/compare-the-speed-of-grep-with-python-regex
+
