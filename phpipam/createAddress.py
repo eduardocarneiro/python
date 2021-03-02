@@ -4,7 +4,7 @@ import json
 server = "http://10.11.58.12"
 appid = "appid"
 username = "admin"
-password = "P@ssw0rd"
+password = "password"
 
 baseurl = server + "/api/" + appid
 
