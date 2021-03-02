@@ -6,7 +6,7 @@ from datetime import date
 
 host = '10.11.58.11'
 username='root'
-password='password'
+password='P@ssw0rd'
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 ssh.connect(hostname=host, username=username, password=password)
@@ -20,13 +20,11 @@ for currentRemoteBindSerialNumber in stdout:
     checkRemoteBindSerialNumber = currentRemoteBindSerialNumber[0:8]
     localDate = todayDate.strftime("%Y%m%d")
     if localDate == checkRemoteBindSerialNumber:
-        """
-        newSerialNumber = int(str(localDate) + str(1))
+        newSerialNumber = int(int(localDate) + 1)
+        print(newSerialNumber)
         newRemoteBindSerialNumber = ("sed -i 's/%i/%i/g' /var/named/ns1.devops.lab.zone" %(int(currentRemoteBindSerialNumber), int(newSerialNumber)))
         print(newRemoteBindSerialNumber)
         stdin, stdout, stderr = ssh.exec_command(newRemoteBindSerialNumber)
-        """
-
     else:
         newSerialNumber = int(str(localDate) + str(1))
         newRemoteBindSerialNumber = ("sed -i 's/%i/%i/g' /var/named/ns1.devops.lab.zone" %(int(currentRemoteBindSerialNumber), int(newSerialNumber)))
