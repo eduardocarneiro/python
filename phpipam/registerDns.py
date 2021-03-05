@@ -5,20 +5,18 @@ import paramiko
 import os
 from datetime import date
 
-
-zone = "ns1.devops.lab.zone"
-
 host = '10.11.58.11'
 username='root'
 password='P@ssw0rd'
 
 
 # check and allocated a free dns hostname
-#import os
 
 serverPreffix = "srv"
 serverSuffix = ".devops.lab"
 dnsServer = "10.11.58.11"
+zone = "/var/named/ns1.devops.lab.zone"
+reverso = "/var/named/58.11.10.in-addr.arpa.zone"
 
 count = 1
 for count in range(110,230):
@@ -35,10 +33,13 @@ for count in range(110,230):
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(hostname=host, username=username, password=password)
         IPADD = "10.11.58.252"
-        addNewHostToZone = str("echo '%s\t\t\tIN\tA\t%s' >> /var/named/%s" %(hostnamePreffix, IPADD, zone))
+        addNewHostToZone = str("echo '%s\t\t\tIN\tA\t%s' >> %s" %(hostnamePreffix, IPADD, zone))
+        addNewHostToReverso = str("echo '%s\t\t\tIN\tPTR\t%s.' >> %s" %(count, hostname, reverso))
         print(addNewHostToZone)
+        print(addNewHostToReverso)
         stdin, stdout, stderr = ssh.exec_command(addNewHostToZone)
-        stdin, stdout, stderr = ssh.exec_command("cat /var/named/ns1.devops.lab.zone")
+        stdin, stdout, stderr = ssh.exec_command(addNewHostToReverso)
+        stdin, stdout, stderr = ssh.exec_command("cat /var/named/ns1.devops.lab.zone ; cat /var/named/58.11.10.in-addr.arpa.zone")
         for out in stdout:
             print(out)
            # print(out.strip('\n'))
