@@ -34,10 +34,15 @@ for count in range(110,230):
         ssh = paramiko.SSHClient()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         ssh.connect(hostname=host, username=username, password=password)
-        #stdin, stdout, stderr = ssh.exec_command("echo -e " + "'" + hostnamePreffix + "\t\t" + "IN" + "\t" + "A" + "10.11.58.252" + zone + "'")
+        IPADD = "10.11.58.252"
+        addNewHostToZone = str("echo '%s\t\t\tIN\tA\t%s' >> /var/named/%s" %(hostnamePreffix, IPADD, zone))
+        print(addNewHostToZone)
+        stdin, stdout, stderr = ssh.exec_command(addNewHostToZone)
         stdin, stdout, stderr = ssh.exec_command("cat /var/named/ns1.devops.lab.zone")
         for out in stdout:
-            print(out.strip('\n'))
+            print(out)
+           # print(out.strip('\n'))
+
         ssh.close()
         break
 
