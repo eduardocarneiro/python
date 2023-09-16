@@ -1,4 +1,8 @@
-Course program
+# cs50p
+
+
+
+## Course content
 
 01 - Introduction
 
@@ -18,6 +22,7 @@ Course program
 
 09 - Regular Expressions
 
-10 - Object-Oriented Programming
+10 - Object-Oriented 
+Programming
 
 11 - Et Cetera
